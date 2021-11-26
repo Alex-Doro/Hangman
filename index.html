@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Hangman</title>
+</head>
+<body>
+    <div class="hangman-game">
+        <div class="hangman__new-game">
+            <button type="button" class="hangman__new-game__btn">new game</button>
+        </div>
+        <div class="hangman__menu">
+            <h2 class="hangman__title">hangman</h2>
+            <h3 class="hangman__subtitle">choose a word category:</h3>
+            <div class="hangman__categories">
+                <div class="hangman__categories__item">plants</div>
+                <div class="hangman__categories__item">sports</div>
+                <div class="hangman__categories__item">music</div>
+                <div class="hangman__categories__item">movies</div>
+            </div>
+        </div>
+        <div class="hangman__container">
+            <div class="hangman__header">
+                <h2 class="hangman__title hangman__topic"></h2>
+                <div class="hangman__word"></div>
+            </div>
+            <div class="hangman__figure__container">
+                <div class="hangman__figure">
+                    <div class="hangman__figure__left-support" id="1"></div>
+                    <div class="hangman__figure__right-support" id="2"></div>
+                    <div class="hangman__figure__pole" id="3"></div>
+                    <div class="hangman__figure__crossbar" id="4"></div>
+                    <div class="hangman__figure__noose" id="5"></div>
+                    <div class="hangman__figure__head" id="6">
+                        <div class="hangman__figure__dead-face" id="12">
+                            <div class="hangman__figure__dead-face__left-eye">x</div>
+                            <div class="hangman__figure__dead-face__right-eye">x</div>
+                        </div>
+                    </div>
+                    <div class="hangman__figure__body" id="7"></div>
+                    <div class="hangman__figure__left-hand" id="8"></div>
+                    <div class="hangman__figure__right-hand" id="9"></div>
+                    <div class="hangman__figure__left-leg" id="10"></div>
+                    <div class="hangman__figure__right-leg" id="11"></div>
+                </div>
+            </div>
+            <div class="hangman__letter__container">
+                <button class="hangman__letter">A</button>
+                <button class="hangman__letter">B</button>
+                <button class="hangman__letter">C</button>
+                <button class="hangman__letter">D</button>
+                <button class="hangman__letter">E</button>
+                <button class="hangman__letter">F</button>
+                <button class="hangman__letter">G</button>
+                <button class="hangman__letter">H</button>
+                <button class="hangman__letter">I</button>
+                <button class="hangman__letter">J</button>
+                <button class="hangman__letter">K</button>
+                <button class="hangman__letter">L</button>
+                <button class="hangman__letter">M</button>
+                <button class="hangman__letter">N</button>
+                <button class="hangman__letter">O</button>
+                <button class="hangman__letter">P</button>
+                <button class="hangman__letter">Q</button>
+                <button class="hangman__letter">R</button>
+                <button class="hangman__letter">S</button>
+                <button class="hangman__letter">T</button>
+                <button class="hangman__letter">U</button>
+                <button class="hangman__letter">V</button>
+                <button class="hangman__letter">W</button>
+                <button class="hangman__letter">X</button>
+                <button class="hangman__letter">Y</button>
+                <button class="hangman__letter">Z</button>
+            </div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>

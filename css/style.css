@@ -1,0 +1,291 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.hangman-game {
+    min-height: 100vh;
+    background: linear-gradient(120deg, rgba(0,255,235,1), rgba(0,228,255,1));
+    color: #426696;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.hangman__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em 1em;
+    text-align: center;
+}
+
+.hangman__menu.disabled {
+    display: none;
+}
+
+.hangman__categories {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+}
+
+.hangman__categories__item {
+    background: linear-gradient(120deg, rgb(0, 175, 161), rgb(0, 148, 165));
+    color: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.hangman__container {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2em 1em;
+    text-align: center;
+}
+
+.hangman__container.active {
+    display: flex;
+}
+
+.hangman__title {
+    margin-bottom: 1em;
+    text-transform: uppercase;
+}
+
+.hangman__subtitle {
+    margin-bottom: 1em;
+    text-transform: capitalize;
+}
+
+.hangman__word {
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.hangman__letter__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+.hangman__letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.3rem;
+    margin-bottom: 0.3rem;
+    background: linear-gradient(120deg, rgb(0, 175, 161), rgb(0, 148, 165));
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    font-size: 1.5em;
+}
+
+.hangman__letter.correct {
+    pointer-events: none;
+    background: #6babfd;
+    color: greenyellow;
+}
+
+.hangman__letter.incorrect {
+    pointer-events: none;
+    background: #182638;
+    color: red;
+}
+
+.hangman__letter:hover,
+.hangman__categories__item:hover {
+    background: linear-gradient(120deg, rgb(1, 151, 139), rgb(0, 113, 126));
+}
+
+.hangman__figure {
+    opacity: 1;
+    position: relative;
+    flex-grow: 1;
+    min-width: 17rem;
+    height: 18rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hangman__figure__container {
+    margin-bottom: 1.5rem;
+}
+
+.hangman__figure * {
+    position: absolute;
+    background: black;
+    border-radius: 1rem;
+    display: none;
+}
+
+.hangman__figure *.active {
+    display: block;
+}
+
+.hangman__figure__left-support {
+    bottom: 0;
+    left: 1.5rem;
+    height: 3em;
+    width: 0.5em;
+    transform-origin: bottom left;
+    transform: rotateZ(45deg);
+}
+
+.hangman__figure__right-support {
+    bottom: 0;
+    left: 5.3rem;
+    height: 3em;
+    width: 0.5em;
+    transform-origin: bottom right;
+    transform: rotateZ(-45deg);
+}
+
+.hangman__figure__pole {
+    height: 15em;
+    width: 0.5em;
+    left: 3.41rem;
+    bottom: 1.6rem;
+}
+
+.hangman__figure__crossbar {
+    height: 8em;
+    width: 0.5em;
+    transform: rotateZ(90deg);
+    transform-origin: bottom left;
+    bottom: 16.7rem;
+    left: 3.41rem;
+}
+
+.hangman__figure__noose {
+    height: 3em;
+    width: 0.5em;
+    left: 11rem;
+    bottom: 13.7rem;
+}
+
+.hangman__figure__head {
+    border-radius: 50%;
+    height: 3em;
+    width: 3em;
+    left: 9.7rem;
+    bottom: 11rem;
+}
+
+.hangman__figure__body {
+    height: 5em;
+    width: 0.5em;
+    left: 11rem;
+    bottom: 6.5rem;
+}
+
+.hangman__figure__left-hand {
+    height: 3em;
+    width: 0.5em;
+    left: 11rem;
+    bottom: 7.5rem;
+    transform: rotateZ(50deg);
+    transform-origin: top;
+}
+
+.hangman__figure__right-hand {
+    height: 3em;
+    width: 0.5em;
+    left: 11rem;
+    bottom: 7.5rem;
+    transform: rotateZ(-50deg);
+    transform-origin: top;
+}
+
+.hangman__figure__left-leg {
+    height: 4em;
+    width: 0.5em;
+    left: 11rem;
+    bottom: 3rem;
+    transform: rotateZ(20deg);
+    transform-origin: top;
+}
+
+.hangman__figure__right-leg {
+    height: 4em;
+    width: 0.5em;
+    left: 11rem;
+    bottom: 3rem;
+    transform: rotateZ(-20deg);
+    transform-origin: top;
+}
+
+.hangman__figure__dead-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.hangman__figure__dead-face * {
+    background: transparent;
+    color: white;
+    top: 22%;
+}
+
+.hangman__figure__dead-face__left-eye {
+    left: 0.7rem;
+}
+
+.hangman__figure__dead-face__right-eye {
+    right: 0.7rem;
+}
+
+.hangman__new-game {
+    opacity: 0;
+    z-index: -1000;
+    position: absolute;
+    inset: 0;
+    background: rgba(66, 102, 150, 0.6);
+    transition: 0.5s;
+}
+
+.hangman__new-game.active {
+    opacity: 1;
+    z-index: 1000;
+}
+
+.hangman__new-game__btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    font-size: 2rem;
+    background: linear-gradient(120deg, rgb(0, 175, 161), rgb(0, 148, 165));
+    color: white;
+    cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) {
+    html {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    html {
+        font-size: 25px;
+    }
+}
