@@ -43,7 +43,7 @@ const hangman = {
     // Change all characters to '_' and put the string in this.displayWord to be shown to a player
     getRandomWord(topic) {
         this.randomWord = this.categories[topic][Math.floor(Math.random() * this.categories[topic].length)]
-        this.displayWord = '_'.repeat(this.randomWord.length)
+        this.displayWord = this.randomWord.replace(/\w/g, '_')
         this.renderWord()
     },
     
@@ -100,7 +100,7 @@ const hangman = {
             // a New game option pops up
             if (this.randomWord === this.displayWord) this.$newGame.classList.toggle('active')
         }
-        
+
         this.renderWord()
     },
 
