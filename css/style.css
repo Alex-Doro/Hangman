@@ -92,18 +92,39 @@
     cursor: pointer;
     border-radius: 1rem;
     font-size: 1.5em;
+    box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
 }
 
 .hangman__letter.correct {
     pointer-events: none;
-    background: #6babfd;
-    color: greenyellow;
+    background: white;
+    color: rgb(0, 175, 161);
+    box-shadow: 0 0 0.2rem 0.2rem rgba(0, 175, 161, 0.5);
+    font-size: 2rem;
+    font-weight: bold;
+    animation: jump 0.4s ease-out;
 }
 
 .hangman__letter.incorrect {
     pointer-events: none;
-    background: #182638;
-    color: red;
+    background: #ffffff8c;
+    color: #00000065;
+    opacity: 0.5;
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        transform: translateY(0)
+    }
 }
 
 .hangman__letter:hover,
@@ -276,6 +297,7 @@
     background: linear-gradient(120deg, rgb(0, 175, 161), rgb(0, 148, 165));
     color: white;
     cursor: pointer;
+    box-shadow: 0 0.3rem 0.2rem rgba(0, 0, 0, 0.2)
 }
 
 @media only screen and (min-width: 768px) {
