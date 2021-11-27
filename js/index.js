@@ -70,11 +70,15 @@ const hangman = {
 
                 // If the game is lost
                 if (this.tryCounter === 12) {
+                    this.$word.innerHTML = this.randomWord
                     this.$deadFace.classList.toggle('active')
                     this.$leftEye.classList.toggle('active')
                     this.$rightEye.classList.toggle('active')
                     this.$newGame.classList.toggle('active')
+                    this.$word.innerHTML = this.randomWord
+                    return
                 }
+
                 break
             }
 
@@ -96,7 +100,7 @@ const hangman = {
             // a New game option pops up
             if (this.randomWord === this.displayWord) this.$newGame.classList.toggle('active')
         }
-
+        
         this.renderWord()
     },
 
