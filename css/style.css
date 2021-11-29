@@ -43,6 +43,7 @@
 
 .hangman__container {
     display: none;
+    position: relative;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -52,6 +53,20 @@
 
 .hangman__container.active {
     display: flex;
+}
+
+.hangman__back-to-menu-btn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 1em;
+    left: 2em;
+    cursor: pointer;
+    transform: rotateY(180deg)
+}
+
+.hangman__back-to-menu-btn img {
+    width: 100%;
 }
 
 .hangman__title {

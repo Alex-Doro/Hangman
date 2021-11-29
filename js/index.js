@@ -6,6 +6,7 @@ const hangman = {
     $menu: document.querySelector('.hangman__menu'),
     $categories: document.querySelector('.hangman__categories'),
     $gameContainer: document.querySelector('.hangman__container'),
+    $backToMenuBtn: document.querySelector('.hangman__back-to-menu-btn'),
     $figure: document.querySelector('.hangman__figure'),
     $deadFace: document.querySelector('.hangman__figure__dead-face'),
     $leftEye: document.querySelector('.hangman__figure__dead-face__left-eye'),
@@ -26,7 +27,11 @@ const hangman = {
     setEvents() {
         this.$categories.addEventListener('click', e => {if (e.target.classList.contains('hangman__categories__item')) this.startGame(e)})
         this.$letters.addEventListener('click', e => {if (e.target.classList.contains('hangman__letter')) this.checkLetter(e)})
-        this.$newGameBtn.addEventListener('click', e => this.startNewGame())
+        this.$newGameBtn.addEventListener('click', e => {
+            this.$newGame.classList.toggle('active')
+            this.startNewGame()
+        })
+        this.$backToMenuBtn.addEventListener('click', e => this.startNewGame())
     },
 
     // Start a new game and call a function getRandomWord(with a chosen topic as an argument) 
@@ -106,9 +111,7 @@ const hangman = {
 
     // This function is called once the player clicks on a New Game button
     startNewGame() {
-
         // Change classes to display initial main menu with a selection of topics
-        this.$newGame.classList.toggle('active')
         this.$menu.classList.toggle('disabled')
         this.$gameContainer.classList.toggle('active')
 
