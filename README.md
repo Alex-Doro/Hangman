@@ -1,2 +1,1 @@
-This is a game called 'Hangman'.
-Download this code, open index.html with your browser and you can play :)
+This is a game called 'Hangman'. Try it out https://alex-doro.github.io/Hangman/
